@@ -6,7 +6,27 @@ public class Blocks : MonoBehaviour
 {
     public void MoveForward(Transform t)
     {
-        t.position = t.position + new Vector3(0f, 10f, 0f);
+        Debug.Log("t.rotation.z   "+ t.rotation.z);
+        if (t.rotation.z == 0f)
+        {
+            Debug.Log("Upward");
+            t.position = t.position + new Vector3(0f, 10f, 0f);
+        }
+        else if (t.rotation.z == 1f)
+        {
+            Debug.Log("Downward");
+            t.position = t.position + new Vector3(0f, -10f, 0f);
+        }
+        else if (t.rotation.z == 0.7071068f)
+        {
+            t.position = t.position + new Vector3(-10f, 0f, 0f);
+        }
+        else if (t.rotation.z == -0.7071068f)
+        {
+            t.position = t.position + new Vector3(10f, 0f, 0f);
+        }
+        
+            
     } 
     public void MoveBack(Transform t)
     {

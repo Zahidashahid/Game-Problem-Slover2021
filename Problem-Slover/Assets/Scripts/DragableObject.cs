@@ -8,6 +8,7 @@ public class DragableObject : MonoBehaviour, IPointerDownHandler, IBeginDragHand
     RectTransform rectTransorm;
     public Canvas canvas;
     public CanvasGroup canvasGroup;
+    public Transform prefab;
     private void Awake()
     {
         rectTransorm = GetComponent<RectTransform>();
@@ -18,6 +19,7 @@ public class DragableObject : MonoBehaviour, IPointerDownHandler, IBeginDragHand
         Debug.Log("OnBeginDrag");
         canvasGroup.alpha = 0.6f;
         canvasGroup.blocksRaycasts = false;
+        Instantiate(prefab, new Vector3( 0F, 75, 0), Quaternion.identity);
         //throw new System.NotImplementedException();
     }
 
